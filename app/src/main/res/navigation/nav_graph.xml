@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/headlinesFragment">
+
+    <fragment
+        android:id="@+id/headlinesFragment"
+        android:name="com.example.newsapp.ui.home.headlines.HeadlinesFragment"
+        android:label="fragment_headlines"
+        tools:layout="@layout/fragment_headlines" />
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.example.newsapp.ui.home.categories.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_articlesActivity"
+            app:destination="@id/articlesActivity" >
+            <argument
+                android:name="type"
+                app:argType="string"
+                android:defaultValue=""/></action>
+    </fragment>
+
+    <activity
+        android:id="@+id/articlesActivity"
+        android:name="com.example.newsapp.ui.articles.ArticlesActivity"
+        android:label="activity_articles"
+        tools:layout="@layout/activity_articles" >
+        <argument
+            android:name="type"
+            app:argType="string"/></activity>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.newsapp.ui.home.history.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+</navigation>
